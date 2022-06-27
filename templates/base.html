@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+        <link rel="stylesheet" href="/data/static/data/css/all.min.css"/>
+    <link rel="stylesheet" href="/data/static/data/css/stories.css"/>
+    <link rel="stylesheet" href="/data/static/data/css/bootstrap.min.css"/>
+    <link rel="icon" href="/data/static/data/logos/logo_white.svg"/>
+    <link rel="stylesheet" href="/data/static/data/css/main.css"/>
+    <script src="/data/static/data/js/Header.js" defer type="text/javascript"></script>
+    <script src="/data/static/data/js/Footer.js" defer type="text/javascript"></script>
+
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+</head>
+<body>
+<nav id="nav" class="navbar-holder">
+    <div class="logo">
+        <a href="index.html">
+            <img src="{% static 'data/logos/logo_orange.svg' %}" alt="logo"/>
+        </a>
+    </div>
+    <!-- Navbar -->
+    <div class="navbar">
+
+        <a href="hosts.html">
+            المضايف
+            <div class="underlind"></div>
+        </a>
+
+        <a href="map.html">
+            الخارطة
+            <div class="underlind"></div>
+        </a>
+
+        <a href="stories.html">
+            القصص
+            <div class="underlind"></div>
+        </a>
+
+    </div>
+</nav>
+
+</body>
+</html>

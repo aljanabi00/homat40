@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>القصص</title>
+    <link rel="stylesheet" href="{% static 'data/css/all.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'data/css/stories.css' %}"/>
+    <link rel="stylesheet" href="{% static 'data/css/bootstrap.min.css' %}"/>
+    <link rel="icon" href="{% static 'data/logos/logo_white.svg' %}"/>
+    <script defer src="{% static 'data/js/stories.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'data/css/main.css' %}"/>
+    <script src="{% static 'data/js/Header.js' %}" defer type="text/javascript"></script>
+    <script src="{% static 'data/js/Footer.js' %}" defer type="text/javascript"></script>
+    <img src="{% static 'data/logos/logo_orange.svg' %}" alt="logo" id="1234" hidden/>
+
+</head>
+
+<body dir="rtl" class="body">
+
+<!-- ----------MENU BAR---------- -->
+<header-component></header-component>
+<!-- ----------MAIN---------- -->
+<div class="page-container">
+    <!-- -----HEADER----- -->
+
+    <div class="taps">
+        <div
+                class="type_icon read_icon"
+                id="read_icon"
+                onclick="stories_show()"
+        >
+            <i class="fa-solid fa-align-right type_logo"></i>
+        </div>
+        <div
+                class="type_icon watch_icon"
+                id="watch_icon"
+                onclick="videos_show()"
+        >
+            <i class="fa-solid fa-film type_logo"></i>
+        </div>
+        <div class="type_icon" onclick="audios_show()" hidden>
+            <i class="fa-solid fa-headphones type_logo"></i>
+        </div>
+    </div>
+
+    <!-- -----READING SECTION----- -->
+
+    <section class="read_sec" id="read_sec">
+        {% block content %}
+            {% for story in  stories %}
+                <div class="story_card">
+                    <a name="{{ story.id }}"></a>
+                    <h4 class="story_name"><a name="#{{ story.id }}">{{ story.title }}</a></h4>
+                    <p class="story_text">
+                        {{ story.content | truncatechars:265 }} <a href="/stories/{{ story.id }}">إكمال القراءة ...</a>
+                    </p>
+                </div>
+            {% endfor %}
+        {% endblock %}
+        <!--
+          <div class="story_card">
+            <h4 class="story_name">اسم القصة</h4>
+            <p class="story_text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+              repellendus nulla fugit animi doloribus est consequuLorem ipsum
+              dolor sit amet consectetur adipisicing elit. Assumenda, repellendus
+              nulla fugit animi doloribus est consequuLorem ipsum dolor sit amet
+              consectetur adipisicing elit. Assumenda, repellendus nulla fugit
+              animi doloribus est consequuLorem ipsum dolor sit amet consectetur
+              adipisicing elit. Assumenda, repellendus nulla fugit animi
+            </p>
+          </div>
+          <div class="story_card">
+            <h4 class="story_name">اسم القصة</h4>
+            <p class="story_text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+              repellendus nulla fugit animi doloribus est consequuLorem ipsum
+              dolor sit amet consectetur adipisicing elit. Assumenda, repellendus
+              nulla fugit animi doloribus est consequuLorem ipsum dolor sit amet
+              consectetur adipisicing elit. Assumenda, repellendus nulla fugit
+              animi doloribus est consequuLorem ipsum dolor sit amet consectetur
+              adipisicing elit. Assumenda, repellendus nulla fugit animi
+            </p>
+          </div>
+          <div class="story_card">
+            <h4 class="story_name">اسم القصة</h4>
+            <p class="story_text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+              repellendus nulla fugit animi doloribus est consequuLorem ipsum
+              dolor sit amet consectetur adipisicing elit. Assumenda, repellendus
+              nulla fugit animi doloribus est consequuLorem ipsum dolor sit amet
+              consectetur adipisicing elit. Assumenda, repellendus nulla fugit
+              animi doloribus est consequuLorem ipsum dolor sit amet consectetur
+              adipisicing elit. Assumenda, repellendus nulla fugit animi
+            </p>
+          </div>
+          -->
+    </section>
+
+    <!-- -----WATCHING SECTION----- -->
+
+    <section class="watch_sec" id="watch_sec">
+        {% block content2 %}
+            {% for video in  videos %}
+                <iframe
+                        class="embed_video"
+                        src="{{ video.url }}"
+                        title="{{ video.title }}"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                ></iframe>
+            {% endfor %}
+        {% endblock %}
+        {#        <iframe#}
+        {#                class="embed_video"#}
+        {#                src="{{ video.url }}"#}
+        {#                title="{{ video.title }}"#}
+        {#                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"#}
+        {#                allowfullscreen#}
+        {#        ></iframe>#}
+        {#        <iframe#}
+        {#                class="embed_video"#}
+        {#                src="https://www.youtube.com/embed/6c3wW777GtI"#}
+        {#                title="YouTube video player"#}
+        {#                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"#}
+        {#                allowfullscreen#}
+        {#        ></iframe>#}
+        {#        <iframe#}
+        {#                class="embed_video"#}
+        {#                src="https://www.youtube.com/embed/o1QR09aShcQ"#}
+        {#                title="YouTube video player"#}
+        {#                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"#}
+        {#                allowfullscreen#}
+        {#        ></iframe>#}
+    </section>
+
+    <!-- -----LISTENNG SECTION----- -->
+
+    <section class="listen_sec" id="listen_sec" hidden>
+        <audio class="embed_audio" controls="true" src=""></audio>
+        <audio class="embed_audio" controls="true" src=""></audio>
+        <audio class="embed_audio" controls="true" src=""></audio>
+        <audio class="embed_audio" controls="true" src=""></audio>
+        <audio class="embed_audio" controls="true" src=""></audio>
+    </section>
+</div>
+
+<!-- ----------FOOTER---------- -->
+
+<footer-component></footer-component>
+</body>
+</html>
