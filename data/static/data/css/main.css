@@ -7,37 +7,3 @@
 .page-container {
   padding: 0 10%;
 }
-.navbar-holder {
-  background-color: #262220d0;
-  backdrop-filter: blur(4px);
-  font-size: 18px;
-  position: static;
-  top: 0%;
-  z-index: 3;
-  width: 100%;
-  display: flex;
-  height: max-content;
-  padding: 5px 10px;
-}
-.navbar {
-  text-align: center;
-  width: 95%;
-  height: max-content;
-  display: flex;
-  gap: 5%;
-  /* padding: 5px 0; */
-  justify-content: center;
-  align-items: center;
-}
-.navbar a {
-  text-decoration: none;
-  color: #f2f2f2;
-}
-.logo img {
-  height: 25px;
-}
-@media only screen and (max-width: 300px) {
-  .logo {
-    display: none;
-  }
-}

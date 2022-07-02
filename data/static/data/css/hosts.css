@@ -14,171 +14,170 @@ html {
   background-color: #f2f2f2;
 }
 
-.hosts-holder {
-  margin-top: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 /* ----------MENU BAR---------- */
-
+/* Change on MENU BAR (Padding & Responsive & Distribution of items) */
 .menu_bar {
-  background-color: #262220d0;
-  backdrop-filter: blur(4px);
-  font-size: 18px;
-  position: fixed;
-  top: 0%;
-  z-index: 3;
-  width: 100%;
-  padding: 0% 107px;
-  height: 40px;
+    background-color: #262220d0;
+    backdrop-filter: blur(4px);
+    font-size: 18px;
+    position: fixed;
+    top: 0%;
+    z-index: 3;
+    width: 100%;
+    height: 40px;
+    padding: 0% 10%;
+    display: flex;
 }
-
 .menu_logo {
-  float: right;
-  height: 25px;
-  width: 25px;
-  margin: 0%;
-  padding: 0%;
-  line-height: 40px;
+    height: 25px;
+    width: 25px;
+    line-height: 40px;
 }
-
 .menu_logo img {
-  height: 25px;
+    height: 100%;
 }
-
 .menu_items {
-  display: inline-block;
-  text-align: center;
-  width: 95%;
-  height: 40px;
+    width: calc(100% - 25px);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
-
-.menu_items li {
-  display: inline-block;
-  height: 40px;
-  margin: 0px 20px;
-  line-height: 40px;
-}
-
 .menu_items a {
-  text-decoration: none;
-  color: #f2f2f2;
+    text-decoration: none;
+    color: #f2f2f2;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 2%;
 }
-
 .menu_items a:hover {
-  color: #f2f2f2;
+    color: #f2f2f2;
 }
-
-.underlind {
-  background: #d86800;
-  height: 3px;
-  width: 0%;
-  border-radius: 1.5px;
-  margin-top: -8px;
-  transition: 0.3s;
+.underline {
+    background: #D86800;
+    height: 3px;
+    width: 0%;
+    border-radius: 1.5px;
+    margin-top: -8px;
+    transition: 0.3s;
 }
-
-.onLoad {
-  width: 100%;
-}
-
-.menu_items li:hover .underlind {
-  width: 100%;
+/* When one page of menu bar is open, .underline will be increase width  */
+/* .onLoad {
+    width: 100%;
+} */
+.menu_items a:hover .underline {
+    width: 100%;
 }
 
 /* ----------MAIN---------- */
-
-section {
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
+/* Change on MAIN (Padding & Height)  */
+main {
+    padding: 10%;
+    padding-top: calc(10% + 40px);
+    min-height: calc(100vh - 40px);
 }
 
+/* -----CARDS CONTAINER----- */
+/* Change on cards container (Distribution of cards)  */
+.hosts-holder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+/* Change on host card (reSizing)  */
 article {
-  margin: auto;
-  padding: 20px;
+    margin: 2%;
+    width: 216px;
+    height: 288px;
 }
 
 article a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
+/* Change on host card (reSizing)  */
 .host_card {
-  width: 216px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  transition: 0.2s;
-  text-align: center;
-  cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    transition: 0.2s;
+    text-align: center;
+    cursor: pointer;
 }
 
+/* Change on host card image (reSizing)  */
 .host_card img {
-  width: 216px;
-  height: 288px;
-  border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
 }
 
+/* Change on host card text (container of name)  */
 .host_card_text {
-  background: linear-gradient(to left, #d86800b0, #e7a600b0);
-  border-radius: 0 0 15px 15px;
-  text-align: center;
-  height: 40px;
-  margin-top: -40px;
-  position: relative;
-  backdrop-filter: blur(3px);
+    background: linear-gradient(to left, #d86800b0, #e7a600b0);
+    border-radius: 0 0 15px 15px;
+    height: 15%;
+    transform: translateY(-100%);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    /* align-items: flex-start;  -> Should be 'center'  */
+    align-items: flex-start;
 }
 
 .host_card:hover {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .host_card:hover .host_card_text {
-  background: linear-gradient(to left, #d86800, #e7a600);
+    background: linear-gradient(to left, #d86800, #e7a600);
 }
 
+/* Change on host name  */
 .host_name {
-  font-size: 20px;
-  color: #f2f2f2;
-  font-weight: 500;
-  line-height: 40px;
+    font-size: 20px;
+    color: #f2f2f2;
+    font-weight: 500;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 
 /* ----------FOOTER---------- */
-
+/* Change on FOOTER (Distribution of items) */
 footer {
-  text-align: center;
-  background-color: #262220;
-  height: 40px;
-}
-
-footer li {
-  display: inline-block;
-  margin: 0px 20px;
-  height: 40px;
+    background-color: #262220;
+    height: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 footer a {
-  height: 40px;
-  padding: 0px;
-  display: block;
-  padding-top: 10px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    margin: 0 2%;
 }
 
-.fa-brands,
-.fa-envelope {
-  color: #f2f2f2;
-  font-size: 20px;
-  transition: 0.2s;
+.fa-brands, .fa-envelope {
+    color: #f2f2f2;
+    font-size: 20px;
+    transition: 0.2s;
 }
 
-footer li:hover .fa-brands {
-  color: #d86800;
+footer a:hover .fa-brands {
+    color: #D86800;
 }
 
-footer li:hover .fa-envelope {
-  color: #d86800;
+footer a:hover .fa-envelope {
+    color: #D86800;
 }
 
 /* -----TEXT STYLING----- */
@@ -192,7 +191,6 @@ P {
 }
 
 /* Scrool */
-
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -207,4 +205,20 @@ P {
 ::-webkit-scrollbar-thumb {
   background: #505050;
   border-radius: 5px;
+}
+
+/* -----RESPONSIVE SCREEN SIZE----- */
+@media (max-width: 1285px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 590px) {
+    section {
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .menu_bar {
+        font-size: 14px;
+    }
 }
