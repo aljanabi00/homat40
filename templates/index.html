@@ -14,7 +14,7 @@
     <title>حماة الأربعين</title>
     <link rel="stylesheet" href="{% static 'data/css/all.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'data/css/index.css' %}"/>
-    <link rel="stylesheet" href="{% static 'data/css/main.css' %}"/>
+<!--    <link rel="stylesheet" href="{% static 'data/css/main.css' %}"/>-->
     <link rel="icon" href="{% static 'data/logos/logo_white.svg' %}"/>
     <script src="{% static 'data/js/Header.js' %}" defer type="text/javascript"></script>
     <script src="{% static 'data/js/Footer.js' %}" defer type="text/javascript"></script>
@@ -37,9 +37,9 @@
             البعثي عندما كانت الزيارة تعتبر جريمة
         </p>
         <span class="down_button">
-          <a href="#main" class="scroll_button"
-          ><i class="fas fa-chevron-circle-down"></i
-          ></a>
+          <a href="#main" class="scroll_button">
+              <i class="fas fa-chevron-circle-down"></i>
+          </a>
         </span>
     </div>
 
@@ -55,125 +55,107 @@
 
     <main class="main" id="main">
         <!-- ----------HOSTS SECTION---------- -->
-        <div class="space">
-            <section class="hosts_sec">
-                <article class="sec_type">
-                    <h2 class="sec_title"><a href="hosts.html">المضايف</a></h2>
-                    <p class="sec_des">
-                        مجموعة من المضايف والمواكب الحسينية التي ساهمت في خدمة الزائرين
-                    </p>
-                </article>
-                <div class="cards-holder">
-                    {% for host in hosts %}
-                        <article>
-                            <a href="hosts/{{ host.id }}">
-                                <div class="host_card">
-                                    <img src="{{ host.images.first.image.url }}" alt=""/>
-                                    <div class="host_card_text">
-                                        <p class="host_name">{{ host.name }}</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </article>
-                    {% endfor %}
-                    {#                    <article>#}
-                    {#                        <a href="host.html">#}
-                    {#                            <div class="host_card">#}
-                    {#                                <img src="images/img-card2.jpg" alt=""/>#}
-                    {#                                <div class="host_card_text">#}
-                    {#                                    <p class="host_name">اسم المضيف</p>#}
-                    {#                                </div>#}
-                    {#                            </div>#}
-                    {#                        </a>#}
-                    {#                    </article>#}
-                    {#                    <article>#}
-                    {#                        <a href="host.html">#}
-                    {#                            <div class="host_card">#}
-                    {#                                <img src="images/img-card3.jpg" alt=""/>#}
-                    {#                                <div class="host_card_text">#}
-                    {#                                    <p class="host_name">اسم المضيف</p>#}
-                    {#                                </div>#}
-                    {#                            </div>#}
-                    {#                        </a>#}
-                    {#                    </article>#}
-                </div>
-            </section>
-
-            <!-- ----------STORIES SECTION---------- -->
-
-            <section class="stories_sec">
-                <article class="sec_type">
-                    <h2 class="sec_title"><a href="stories.html">القصص</a></h2>
-                    <p class="sec_des">
-                        مجموعة من القصص لبعض الاحداث التي حصلت للزائرين
-                    </p>
-                </article>
-
-                <article class="stories_container">
-                    <div class="story_card">
-                        <div class="story-name-container">
-                            {% for story in stories_titles %}
-                                <h4 class="story_name sn{{ forloop.counter }}">{{ story.title }}</h4>
-                                {#                                <h4 class="story_name sn2">اسم القصة2</h4>#}
-                                {#                                <h4 class="story_name sn3">اسم القصة3</h4>#}
-                            {% endfor %}
-                        </div>
-                        <div class="text_slide">
-                            {% for story in stories  %}
-                                <p class="story_text story_p{{ forloop.counter }}">
-                                    {{ story.content | truncatechars:230 }} <a href="stories/{{ story.id }}">إكمال
-                                    القراءة...</a>
-                                </p>
-                            {% endfor %}
-                            {#                            <p class="story_text story_p2">#}
-                            {#                                p 2 -- doloremque? Nam ipsa mollitia a aut iusto! Possimus#}
-                            {#                                adipisci recusandae consequatur molestiae cumque, id commodi#}
-                            {#                                sequi officia animi necessitatibus molestias odit culpa delectus#}
-                            {#                                ut provident natus autem exercitationem enim accusantium. Dicta,#}
-                            {#                                soluta quosLorem ipsum dolor sit amet#}
-                            {#                            </p>#}
-                            {##}
-                            {#                            <p class="story_text story_p3">#}
-                            {#                                p 3 -- doloribus est consequuLorem ipsum dolor sit amet#}
-                            {#                                consectetur adipisicing elit. Assumenda, repellendus nulla fugit#}
-                            {#                                animi doloribus est consequuLorem ipsum dolor sit amet#}
-                            {#                                consectetur adipisicing elit. Assumenda, repellendus nulla fugit#}
-                            {#                                animi doloribus est consequuntur adipisci doloremque? Nam ipsa#}
-                            {#                                mollitia a aut iusto! Possimus adipisci recusandae consequatur#}
-                            {#                                molestiae cumque, id commodi sequi officia animi necessitatibus#}
-                            {#                                molestias odit culpa delectus ut provident natus autem#}
-                            {#                                exercitationem enim accusantium. Dicta, soluta quosLorem ipsum#}
-                            {#                                dolor sit amet consectetur adipisicing elit. Assumenda,#}
-                            {#                                repellendus nulla fugit animi doloribus est consequuntur#}
-                            {#                                adipisci doloremque? Nam ipsa mollitia a aut iusto! Possimus#}
-                            {#                                adipisci recusandae consequatur molestiae cumque, id commodi#}
-                            {#                                sequi officia animi necessitatibus molestias odit culpa delectus#}
-                            {#                                ut provident natus autem exercitationem enim accusantium. Dicta,#}
-                            {#                                soluta quos.#}
-                            {#                            </p>#}
-                        </div>
-                        <ul class="slide_points">
-                            <li class="">
-                                <a><i class="fa-solid fa-circle point1"></i></a>
-                            </li>
-                            <li class="">
-                                <a><i class="fa-solid fa-circle point2"></i></a>
-                            </li>
-                            <li class="">
-                                <a><i class="fa-solid fa-circle point3"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </article>
-            </section>
+        <div class="sec_type">
+            <h2 class="sec_title"><a href="hosts">المضايف</a></h2>
+            <p class="sec_des">
+                مجموعة من المضايف والمواكب الحسينية التي ساهمت في خدمة الزائرين
+            </p>
         </div>
+        <section class="hosts_sec">
+            {% for host in hosts %}
+                <article class="host_card">
+                    <a href="hosts/{{ host.id }}">
+                        <img src="{{ host.images.first.image.url }}" alt=""/>
+                        <div class="host_card_text">
+                            <p class="host_name">{{ host.name }}</p>
+                        </div>
+                    </a>
+                </article>
+            {% endfor %}
+            {#                    <article class="host_card">#}
+            {#                        <a href="host.html">#}
+            {#                            <img src="images/img-card2.jpg" alt=""/>#}
+            {#                            <div class="host_card_text">#}
+            {#                                <p class="host_name">اسم المضيف</p>#}
+            {#                            </div>#}
+            {#                        </a>#}
+            {#                    </article>#}
+            {#                    <article class="host_card">#}
+            {#                        <a href="host.html">#}
+            {#                            <img src="images/img-card3.jpg" alt=""/>#}
+            {#                            <div class="host_card_text">#}
+            {#                                <p class="host_name">اسم المضيف</p>#}
+            {#                            </div>#}
+            {#                        </a>#}
+            {#                    </article>#}
+        </section>
+
+        <!-- ----------STORIES SECTION---------- -->
+        <div class="sec_type">
+            <h2 class="sec_title"><a href="stories">القصص</a></h2>
+            <p class="sec_des">
+                مجموعة من القصص لبعض الاحداث التي حصلت للزائرين
+            </p>
+        </div>
+        <section class="stories_sec">
+            <article class="story_card">
+                <a href="stories/{{ story.id }}" class="view-story">    <!-- -----Direct Link to story----- -->
+                <div class="story-name-container">
+                    {% for story in stories_titles %}
+                        <h4 class="story_name sn{{ forloop.counter }}">{{ story.title }}</h4>
+                        {#                                <h4 class="story_name sn2">اسم القصة2</h4>#}
+                        {#                                <h4 class="story_name sn3">اسم القصة3</h4>#}
+                    {% endfor %}
+                </div>
+                <div class="text_slide">
+                    {% for story in stories  %}
+                        <p class="story_text story_p{{ forloop.counter }}">
+                            {{ story.content | truncatechars:220 }}
+                            <!--<a href="stories/{{ story.id }}" class="view-story ">إكمال القراءة...</a>-->
+                        </p>
+
+                    {% endfor %}
+                    {#                            <p class="story_text story_p2">#}
+                    {#                                p 2 -- doloremque? Nam ipsa mollitia a aut iusto! Possimus#}
+                    {#                                adipisci recusandae consequatur molestiae cumque, id commodi#}
+                    {#                                sequi officia animi necessitatibus molestias odit culpa delectus#}
+                    {#                                ut provident natus autem exercitationem enim accusantium. Dicta,#}
+                    {#                                soluta quosLorem ipsum dolor sit amet#}
+                    {#                            </p>#}
+                    {##}
+                    {#                            <p class="story_text story_p3">#}
+                    {#                                p 3 -- doloribus est consequuLorem ipsum dolor sit amet#}
+                    {#                                consectetur adipisicing elit. Assumenda, repellendus nulla fugit#}
+                    {#                                animi doloribus est consequuLorem ipsum dolor sit amet#}
+                    {#                                consectetur adipisicing elit. Assumenda, repellendus nulla fugit#}
+                    {#                                animi doloribus est consequuntur adipisci doloremque? Nam ipsa#}
+                    {#                                mollitia a aut iusto! Possimus adipisci recusandae consequatur#}
+                    {#                                molestiae cumque, id commodi sequi officia animi necessitatibus#}
+                    {#                                molestias odit culpa delectus ut provident natus autem#}
+                    {#                                exercitationem enim accusantium. Dicta, soluta quosLorem ipsum#}
+                    {#                                dolor sit amet consectetur adipisicing elit. Assumenda,#}
+                    {#                                repellendus nulla fugit animi doloribus est consequuntur#}
+                    {#                                adipisci doloremque? Nam ipsa mollitia a aut iusto! Possimus#}
+                    {#                                adipisci recusandae consequatur molestiae cumque, id commodi#}
+                    {#                                sequi officia animi necessitatibus molestias odit culpa delectus#}
+                    {#                                ut provident natus autem exercitationem enim accusantium. Dicta,#}
+                    {#                                soluta quos.#}
+                    {#                            </p>#}
+                </div>
+                <ul class="slide_points">
+                    <li class=""> <i class="fa-solid fa-circle point1"></i> </li>
+                    <li class=""> <i class="fa-solid fa-circle point2"></i> </li>
+                    <li class=""> <i class="fa-solid fa-circle point3"></i> </li>
+                </ul>
+                </a>
+            </article>
+        </section>
     </main>
 {% endblock %}
+
 <!-- ----------FOOTER---------- -->
-
-
-</div>
 <footer-component></footer-component>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

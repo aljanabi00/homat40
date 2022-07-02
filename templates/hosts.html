@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'data/css/hosts.css' %}"/>
     <link rel="stylesheet" href="{% static 'data/css/bootstrap.min.css' %}"/>
     <link rel="icon" href="{% static 'data/logos/logo_white.svg' %}"/>
-    <link rel="stylesheet" href="{% static 'data/css/main.css' %}"/>
+    <!--Delete main.css-->
     <script src="{% static 'data/js/Header.js' %}" defer type="text/javascript"></script>
     <script src="{% static 'data/js/Footer.js' %}" defer type="text/javascript"></script>
     <img src="{% static 'data/logos/logo_orange.svg' %}" alt="logo" id="1234" hidden/>
@@ -24,8 +24,8 @@
 
 <!-- ----------MAIN---------- -->
 
-<div class="hosts-holder">
-    <section>
+<main>
+    <section class="hosts-holder">
         {% block content %}
             {% for host in hosts %}
                 <article>
@@ -41,7 +41,7 @@
             {% endfor %}
         {% endblock %}
     </section>
-</div>
+</main>
 
 <!-- ----------FOOTER---------- -->
 
