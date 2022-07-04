@@ -1,26 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap");
-@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
-
+:root {
+    --ofWhite: #f2f2f2;
+    --grey: #262220;
+    --orange: #D86800;
+}
 .body {
-  margin: 0%;
-  padding: 0%;
-  border: 0px;
-  font-family: "Tajawal", sans-serif;
-  color: #262220;
-  background-color: #f2f2f2;
+    margin: 0%;
+    padding: 0%;
+    border: 0px;
+    font-family: 'Tajawal', sans-serif;
+    color: var(--grey);
+    background-color: var(--ofWhite);
 }
-
-
-/* ----------MENU BAR---------- */
-/* Change on MENU BAR (Padding & Responsive & Distribution of items) */
 .menu_bar {
     background-color: #262220d0;
     backdrop-filter: blur(4px);
-    font-size: 18px;
+    font-size: 1.125rem;
     position: fixed;
     top: 0%;
     z-index: 3;
@@ -38,7 +39,7 @@ html {
     height: 100%;
 }
 .menu_items {
-    width: calc(100% - 25px);
+    width: calc(100% - 50px);
     height: 40px;
     display: flex;
     justify-content: center;
@@ -46,60 +47,45 @@ html {
 }
 .menu_items a {
     text-decoration: none;
-    color: #f2f2f2;
+    color: var(--ofWhite);
     display: inline-block;
     height: 40px;
     line-height: 40px;
     margin: 0 2%;
 }
 .menu_items a:hover {
-    color: #f2f2f2;
+    color: var(--ofWhite);
 }
 .underline {
-    background: #D86800;
+    background: var(--orange);
     height: 3px;
     width: 0%;
     border-radius: 1.5px;
     margin-top: -8px;
     transition: 0.3s;
 }
-/* When one page of menu bar is open, .underline will be increase width  */
-/* .onLoad {
-    width: 100%;
-} */
 .menu_items a:hover .underline {
     width: 100%;
 }
-
-/* ----------MAIN---------- */
-/* Change on MAIN (Padding & Height)  */
 main {
     padding: 10%;
     padding-top: calc(10% + 40px);
     min-height: calc(100vh - 40px);
 }
-
-/* -----CARDS CONTAINER----- */
-/* Change on cards container (Distribution of cards)  */
-.hosts-holder {
+section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-content: space-between;
 }
-
-/* Change on host card (reSizing)  */
 article {
     margin: 2%;
     width: 216px;
     height: 288px;
 }
-
 article a {
     text-decoration: none;
 }
-
-/* Change on host card (reSizing)  */
 .host_card {
     width: 100%;
     height: 100%;
@@ -109,15 +95,11 @@ article a {
     text-align: center;
     cursor: pointer;
 }
-
-/* Change on host card image (reSizing)  */
 .host_card img {
     width: 100%;
     height: 100%;
     border-radius: 15px;
 }
-
-/* Change on host card text (container of name)  */
 .host_card_text {
     background: linear-gradient(to left, #d86800b0, #e7a600b0);
     border-radius: 0 0 15px 15px;
@@ -126,99 +108,69 @@ article a {
     backdrop-filter: blur(3px);
     display: flex;
     justify-content: center;
-    /* align-items: flex-start;  -> Should be 'center'  */
     align-items: flex-start;
 }
-
 .host_card:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
-
 .host_card:hover .host_card_text {
-    background: linear-gradient(to left, #d86800, #e7a600);
+    background: linear-gradient(to left, var(--orange), #e7a600);
 }
-
-/* Change on host name  */
 .host_name {
     font-size: 20px;
-    color: #f2f2f2;
+    color: var(--ofWhite);
     font-weight: 500;
     width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
-
-/* ----------FOOTER---------- */
-/* Change on FOOTER (Distribution of items) */
 footer {
-    background-color: #262220;
+    background-color: var(--grey);
     height: 40px;
     display: flex;
     justify-content: center;
 }
-
 footer a {
     height: 40px;
     line-height: 40px;
     display: inline-block;
     margin: 0 2%;
 }
-
 .fa-brands, .fa-envelope {
-    color: #f2f2f2;
-    font-size: 20px;
+    color: var(--ofWhite);
+    font-size: 1.25rem;
     transition: 0.2s;
 }
-
-footer a:hover .fa-brands {
-    color: #D86800;
+footer a:hover .fa-brands, footer a:hover .fa-envelope {
+    color: var(--orange);
 }
-
-footer a:hover .fa-envelope {
-    color: #D86800;
-}
-
-/* -----TEXT STYLING----- */
-
 P {
-  cursor: default;
+    cursor: default;
 }
-
 ::selection {
-  background: #e7a600;
+    background: var(--orange);
+    color: var(--ofWhite);
 }
-
-/* Scrool */
-/* width */
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
-  background-color: #262220;
+    background-color: var(--grey);
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #505050;
-  border-radius: 5px;
+    background: #505050;
+    border-radius: 5px;
 }
-
-/* -----RESPONSIVE SCREEN SIZE----- */
-@media (max-width: 1285px) {}
-
-@media (max-width: 768px) {}
-
-@media (max-width: 590px) {
+@media (max-width: 480px) {
+    html {
+        font-size: 10px;
+    }
     section {
         flex-direction: column;
         align-content: center;
     }
-
-    .menu_bar {
-        font-size: 14px;
+    article {
+        margin: 5% 2%;
     }
 }

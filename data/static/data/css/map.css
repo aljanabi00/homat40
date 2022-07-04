@@ -1,180 +1,138 @@
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap");
-@import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
-
+:root {
+    --ofWhite: #f2f2f2;
+    --grey: #262220;
+    --orange: #D86800;
+}
 .body {
     margin: 0%;
     padding: 0%;
     border: 0px;
-    font-family: Tajawal;
-    color: #262220;
-    background-color: #f2f2f2;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+    color: var(--grey);
+    background-color: var(--ofWhite);
 }
-
-.map-holder {
-    margin: 10%;
-}
-
-/* ----------MENU BAR---------- */
-
 .menu_bar {
     background-color: #262220d0;
     backdrop-filter: blur(4px);
-    font-size: 18px;
+    font-size: 1.125rem;
     position: fixed;
     top: 0%;
     z-index: 3;
     width: 100%;
-    padding: 0% 107px;
     height: 40px;
+    padding: 0% 10%;
+    display: flex;
 }
-
 .menu_logo {
-    float: right;
     height: 25px;
     width: 25px;
-    margin: 0%;
-    padding: 0%;
     line-height: 40px;
 }
-
 .menu_logo img {
-    height: 25px;
+    height: 100%;
 }
-
 .menu_items {
-    display: inline-block;
-    text-align: center;
-    width: 95%;
+    width: calc(100% - 50px);
     height: 40px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
-
-.menu_items li {
-    display: inline-block;
-    height: 40px;
-    margin: 0px 20px;
-    line-height: 40px;
-}
-
 .menu_items a {
     text-decoration: none;
-    color: #f2f2f2;
+    color: var(--ofWhite);
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 2%;
 }
-
 .menu_items a:hover {
-    color: #f2f2f2;
+    color: var(--ofWhite);
 }
-
-.underlind {
-    background: #d86800;
+.underline {
+    background: var(--orange);
     height: 3px;
     width: 0%;
     border-radius: 1.5px;
     margin-top: -8px;
     transition: 0.3s;
 }
-
-.onLoad {
+.menu_items a:hover .underline {
     width: 100%;
 }
-
-.menu_items li:hover .underlind {
-    width: 100%;
-}
-
-/* ----------MAIN---------- */
-
 main {
-    padding: 115px 120px;
-    /* background-color: #f2f2f2; */
+    padding: 80px 10% 40px;
+    box-sizing: border-box;
     position: relative;
+    height: calc(100vh - 40px);
 }
-
 .map_card {
     width: 100%;
-    height: 500px;
-    background-color: #f2f2f2;
+    height: 100%;
+    background-color: var(--ofWhite);
     border-radius: 25px;
     margin: auto;
-    /* display: inline-block; */
-    /* position: absolute; */
     border: #cccccc 5px solid;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
-
 .map_card:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
 }
-
 .map {
     width: 100%;
     height: 100%;
     border-radius: 25px;
 }
-
-/* ----------FOOTER---------- */
-
 footer {
-    text-align: center;
-    background-color: #262220;
+    background-color: var(--grey);
     height: 40px;
+    display: flex;
+    justify-content: center;
 }
-
-footer li {
-    display: inline-block;
-    margin: 0px 20px;
-    height: 40px;
-}
-
 footer a {
     height: 40px;
-    padding: 0px;
-    display: block;
-    padding-top: 10px;
+    line-height: 40px;
+    display: inline-block;
+    margin: 0 2%;
 }
-
-.fa-brands,
-.fa-envelope {
-    color: #f2f2f2;
-    font-size: 20px;
+.fa-brands, .fa-envelope {
+    color: var(--ofWhite);
+    font-size: 1.25rem;
     transition: 0.2s;
 }
-
-footer li:hover .fa-brands {
-    color: #d86800;
+footer a:hover .fa-brands {
+    color: var(--orange);
 }
-
-footer li:hover .fa-envelope {
-    color: #d86800;
+footer a:hover .fa-envelope {
+    color: var(--orange);
 }
-
-/* -----TEXT STYLING----- */
-
 P {
     cursor: default;
 }
-
 ::selection {
-    background: #e7a600;
+    background: var(--orange);
+    color: var(--ofWhite);
 }
-
-/* Scrool */
-
-/* width */
 ::-webkit-scrollbar {
     width: 10px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
-    background-color: #262220;
+    background-color: var(--grey);
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #505050;
     border-radius: 5px;
+}
+@media (max-width: 480px) {
+    html {
+        font-size: 10px;
+    }
 }
