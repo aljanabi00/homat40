@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{% static 'data/css/all.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'data/css/host.css' %}"/>
     <link rel="stylesheet" href="{% static 'data/css/bootstrap.min.css' %}"/>
-    <link rel="stylesheet" href="{% static 'data/css/main.css' %}"/>
     <link rel="icon" href="{% static 'data/logos/logo_white.svg' %}"/>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="{% static 'data/js/Header.js' %}" defer type="text/javascript"></script>
@@ -20,14 +19,11 @@
 
 <body dir="rtl" class="body">
 <!-- ----------MENU BAR---------- -->
-
 <header-component></header-component>
-<!-- -----UPDATE----- -->
-
 
 <!-- ----------MAIN---------- -->
 {% block content %}
-    <div class="host-container">
+    <main>
         <!-- -----HEADER----- -->
         <header class="host_info">
             <h1 class="host_name">{{ host.name }}</h1>
@@ -37,46 +33,38 @@
         </header>
 
         <!-- -----GALLERY----- -->
-
-        <section class="gallery_sec">
-            <div class="gallery">
-                {% for image in host.images.all %}
-                    <div class="image">
-                        <span><img src="{{ image.image.url }}" alt=""/></span>
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="preview-box">
-                <div class="details">
-                    <span class="close fa-solid fa-xmark"></span>
+        <div class="gallery">
+            {% for image in host.images.all %}
+                <div class="image">
+                    <img src="{{ image.image.url }}" alt=""/>
                 </div>
-                <div class="image-box">
-                    <div class="slide next"><i class="fas fa-solid fa-angle-left"></i></div>
-                    <div class="slide prev"><i class="fas fa-solid fa-angle-right"></i></div>
-                    <img src="" alt="">
-                </div>
+            {% endfor %}
+        </div>
+        <div class="preview-box">
+            <span class="close fa-solid fa-xmark"></span>
+            <div class="slide next"><i class="fas fa-solid fa-angle-left"></i></div>
+            <div class="slide prev"><i class="fas fa-solid fa-angle-right"></i></div>
+            <div class="image-box">
+                <img src="" alt="">
             </div>
-            <div class="shadow"></div>
-        </section>
+        </div>
+        <div class="shadow"></div>
 
         <!-- -----MAP----- -->
-
         <section class="map_sec">
             <iframe
                     src="https://www.google.com/maps/place/32%C2%B036'24.7%22N+44%C2%B000'37.4%22E/@32.606846,44.0125807,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0xec1b4b1f66025587!8m2!3d32.606846!4d44.010392"
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                    class="map"
-            ></iframe>
+                    class="map">
+            </iframe>
         </section>
-    </div>
+    </main>
 {% endblock %}
-<!-- ----------FOOTER---------- -->
+    <!-- ----------FOOTER---------- -->
+    <footer-component></footer-component>
 
-<footer-component></footer-component>
-
-
-<script src="{% static 'data/js/host.js' %}"></script>
+    <script src="{% static 'data/js/host.js' %}"></script>
 </body>
 </html>

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{% static 'data/css/bootstrap.min.css' %}"/>
     <link rel="icon" href="{% static 'data/logos/logo_white.svg' %}"/>
     <script defer src="{% static 'data/js/stories.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'data/css/main.css' %}"/>
     <script src="{% static 'data/js/Header.js' %}" defer type="text/javascript"></script>
     <script src="{% static 'data/js/Footer.js' %}" defer type="text/javascript"></script>
     <img src="{% static 'data/logos/logo_orange.svg' %}" alt="logo" id="1234" hidden/>
@@ -20,30 +19,30 @@
 
 <body dir="rtl" class="body">
 
-<!-- ----------MENU BAR---------- -->
-<header-component></header-component>
-<!-- ----------MAIN---------- -->
-<div class="page-container">
-    <!-- -----HEADER----- -->
-    {% block content %}
-        <div class="header">
-        <div class="header-text">
-            <h4 class="story_name"><a name="#{{ story.id }}">{{ story.title }}</a></h4>
-        </div>
-        <!-- -----READING SECTION----- -->
+    <header-component></header-component>
 
-        <section class="read_sec" id="read_sec">
-            <div class="story_card_one">
-                <p class="story_text">
-                    {{ story.content }}
-                </p>
+    <main>
+        {% block content %}
+            <div class="header">
+            <div class="header-text">
+                <h4 class="story_name"><a name="#{{ story.id }}">{{ story.title }}</a></h4>
             </div>
-        </section>
+            <!-- -----READING SECTION----- -->
 
-    {% endblock %}
+            <section class="read_sec" id="read_sec">
+                <div class="story_card_one">
+                    <p class="story_text">
+                        {{ story.content }}
+                    </p>
+                </div>
+            </section>
 
-    </div>
-</div>
-<footer-component></footer-component>
+        {% endblock %}
+
+        </div>
+    </main>
+
+    <footer-component></footer-component>
+
 </body>
 </html>
